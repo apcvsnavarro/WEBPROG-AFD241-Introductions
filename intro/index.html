@@ -1,42 +1,109 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Virgilio Angelo S. Navarro III - Portfolio</title>
+  <link rel="stylesheet" href="css/style.css?version=0.1">
+  <link rel="stylesheet" href="css/css-flexbox-grid.css?version=0.1">
+  <link rel="stylesheet" href="css/pink.css?version=0.1">
+  <link rel="stylesheet" href="css/images.css?version=0.1">
+  <link rel="stylesheet" href="css/shopping.css?version=0.1">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Virgilio Angelo S. Navarro III</h1>
+    </header>
 
- <html>
- <head>
- <link rel="stylesheet" href="css/css-flexbox-grid.css?version=0.1">
- <title>Page Title</title>
- </head>
- <body>
- 
- <h1>This is a Heading</h1>
- <p>This is a paragraph.</p>
+    <main>
+      <section id="about" class="main-content pinkBG">
+        <h2>About Me</h2>
+        <p>
+          I am a third-year (irregular) student at Asia Pacific College, majoring in Information Technology with a focus on Mobile and Internet technologies. I have been passionate about computers since childhood.
+        </p>
+      </section>
+
+      <section id="education" class="main-content">
+        <h2>Education & Achievements</h2>
+        <ul>
+          <li>Graduated Senior High School at AMA Makati</li>
+          <li>Currently studying Information Technology: Mobile/Internet at Asia Pacific College</li>
+        </ul>
+      </section>
+
+      <section id="experience" class="main-content pinkBG">
+        <h2>IT Experience</h2>
+        <ul>
+          <li>Built my first computer at age 13</li>
+          <li>Helped friends build and troubleshoot their PCs</li>
+          <li>Completed work immersion at Development Bank of the Philippines (DBP) Head Office, working with the IT team on the bank's website</li>
+        </ul>
+      </section>
+
+      <section id="goals" class="main-content">
+        <h2>Goals & Dreams</h2>
+        <p>
+          My goal is to be successful no matter what obstacles I encounter. I dream of visiting Japan or South Korea at least once in my life.
+        </p>
+      </section>
 
 
-   <div class="container">
-      <header>
-        </header>
-      <main>
-        <section class="main-content">
-         <div>About Me</div>
-         <div>Education / Achievements</div>
-         <div>Course</div>
-         <div>IT Experience</div>
-         <div>Goals In Life / Dream</div>
-          </section>
-        <aside class="sidebar">
-         Hobbies & Interests
-          </aside>
-      </main>
-      <footer>
-         Picture Gallery
-        </footer>
+    </main>
+
+    <side>
+      <div id="app">
+        {{ message }} <br>
+        {{'Random number: ' + Math.ceil(Math.random()*6) }}
+
+        <div v-bind:class="vueClass">This element is bound to the "pinkBG" class.</div>
+      </div>
+
+    <div id="app2">
+      <div>
+        <figure v-for="x in manyFoods">
+          <img v-bind:src="x.url">
+          <figcaption>{{ x.name }}</figcaption>
+        </figure>
+      </div>
     </div>
- <br>Virgilio Angelo S. Navarro III
- <br>I am a 3rd year college student in Asia Pacific College.
- <br>Information Technology.
- <br>I have been interested in computers ever since I was a child. I built my first computer when I was 13 years old.
- <br>I like playing video games and I like to watch japanese anime and korean drama.
- <br>My goal is to explore the world and find a place that I would like to retire in.
- <br>Picture Gallery (no photo yet xd)
- 
- </body>
- </html>
+
+    <div id="app3" class="vue-app">
+      <h3>Shopping List</h3>
+      <form @submit.prevent="addItem">
+        <label>
+          Item Name:
+          <input v-model="itemName" required />
+        </label>
+        <label>
+          Quantity:
+          <input type="number" v-model.number="itemNumber" min="1" required />
+        </label>
+        <label>
+          Important:
+          <input type="checkbox" v-model="itemImportant" />
+        </label>
+        <button type="submit">Add Item</button>
+      </form>
+
+      <ul>
+        <li v-for="(item, index) in shoppingList" :key="index" :class="{ impClass: item.important, foundClass: item.found }">
+          <label>
+            <input type="checkbox" v-model="item.found" />
+            {{ item.name }} - {{ item.number }}
+          </label>
+        </li>
+      </ul>
+    </div>
+  </side>
+    <footer>
+      <p>&copy; 2025 Virgilio Angelo S. Navarro III</p>
+    </footer>
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+  <script src="js/vue.js"></script>
+  <script src="js/images.js"></script>
+  <script src="js/shopping.js"></script>
+</body>
+</html>
