@@ -1,0 +1,32 @@
+/* images.css */
+
+#app2 > div {
+  border: 2px solid black;
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  background-color: #e0f7fa;
+  border-radius: 8px;
+}
+
+#app2 figure {
+  width: 100px;
+  padding: 10px;
+  margin: 10px;
+  background-color: lightskyblue;
+  border-radius: 5px;
+  text-align: center;
+}
+
+#app2 figcaption {
+  margin-top: 5px;
+  font-weight: bold;
+}
+
+#app2 img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
