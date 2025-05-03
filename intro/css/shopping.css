@@ -1,0 +1,41 @@
+/* shopping.css */
+
+#app3 {
+    border: 2px dashed black;
+    display: inline-block;
+    padding: 20px;
+    max-width: 400px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+  }
+
+  #app3 label, #app3 li {
+    padding: 5px;
+    border-radius: 5px;
+    display: block;
+  }
+
+  #app3 label:hover, #app3 li:hover {
+    cursor: pointer;
+    background-color: lightgray;
+  }
+
+  #app3 ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 10px;
+  }
+
+  #app3 li {
+    margin: 5px 0;
+    background-color: rgb(211, 254, 211);
+  }
+
+  .impClass {
+    background-color: rgb(255, 202, 202);
+  }
+
+  .foundClass {
+    text-decoration: line-through;
+    background-color: rgb(230, 230, 230);
+  }
